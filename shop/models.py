@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 
 class Category(models.Model):
 
+    #komentarz testowy dla gita
     name=models.CharField(max_length=250,db_index=True)
     slug=models.SlugField(max_length=250,db_index=True,unique=True)
 

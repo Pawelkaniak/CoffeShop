@@ -1,0 +1,56 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>The Shop</title>
+    <link href="{% static "css/style.css" %}" rel="stylesheet" >
+  </head>
+
+  <body>
+<header>
+  <nav class="main_width flex_container">
+    <div id="logo">LOGO<!--<img>jakieś logo--></div>
+     <div id="menu">
+       <ul class="navigation flex_container">
+
+         <li><a class="cool-link" href="#">Kawy</a></li>
+         <li><a class="cool-link" href="#">Herbaty</a></li>
+         <li><a class="cool-link" href="#">Promocje</a></li>
+         <!--<li><a class="cool-link" href="#">Wyprzedaż</a></li>-->
+      </ul>
+    </div>
+    <div class="account">
+        <!--<img> będzie ikonka logowania -->
+        <p>Zaloguj się</p>
+    </div>
+  </nav>
+  <div class="coffee_photo"></div>
+</header>
+<section class="landing_page main_width">  
+  <div class="main flex_container">
+    <div class="categories">
+      <h2>Kategorie</h2>
+      <ul>
+        <li><a href="{% url "shop:index"%}">Wszystkie Produkty</a></li>
+        {% for category in categories %}
+          <li>
+            <a href="{{category.get_absolute_url}}">{{category.name}}</a>
+          </li>
+        {% endfor%}
+      </ul>
+    </div>
+    <div class="main_products flex-column">
+    {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</section>
+
+<section></section>
+<section></section>
+<footer></footer>
+      
+  </body>
+  <script src="JavaScript/JavaScript.js"></script>
+</html>
